@@ -210,7 +210,7 @@ public class Mensa extends RESTService {
    * 
    */
   @PUT
-  @Path("//dishes/{id}/ratings")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
@@ -256,7 +256,7 @@ public class Mensa extends RESTService {
    * 
    */
   @POST
-  @Path("//dishes/{id}/ratings")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
@@ -302,7 +302,7 @@ public class Mensa extends RESTService {
    * 
    */
   @DELETE
-  @Path("//dishes/{id}/ratings/{rid}")
+  @Path("/dishes/{id}/ratings/{rid}")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
@@ -345,7 +345,7 @@ public class Mensa extends RESTService {
    * 
    */
   @GET
-  @Path("//dishes/{id}/ratings")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
@@ -373,49 +373,6 @@ public class Mensa extends RESTService {
       
 
       return Response.status(HttpURLConnection.HTTP_OK).entity(ok.toJSONString()).build();
-    }
-    return null;
-  }
-
-  /**
-   * 
-   * gettest
-   *
-   * 
-   *
-   * 
-   * @return Response 
-   * 
-   */
-  @GET
-  @Path("/test")
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
-  })
-  @ApiOperation(value = "gettest", notes = " ")
-  public Response gettest() {
-
-
-
-
-     
-    // service method invocations
-
-     
-
-
-
-
-    // res
-    boolean res_condition = true;
-    if(res_condition) {
-      JSONObject res = new JSONObject();
-
-      
-
-      return Response.status(HttpURLConnection.HTTP_OK).entity(res.toJSONString()).build();
     }
     return null;
   }
