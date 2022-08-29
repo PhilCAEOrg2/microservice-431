@@ -214,6 +214,7 @@ public class Mensa extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "notfound"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "updated")
   })
   @ApiOperation(value = "updateDishRating", notes = " ")
@@ -231,6 +232,15 @@ public class Mensa extends RESTService {
 
 
 
+    // notfound
+    boolean notfound_condition = true;
+    if(notfound_condition) {
+      JSONObject notfound = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(notfound.toJSONString()).build();
+    }
     // updated
     boolean updated_condition = true;
     if(updated_condition) {
@@ -260,7 +270,9 @@ public class Mensa extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created")
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "notfound"),
+       @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created"),
+       @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "badrequest")
   })
   @ApiOperation(value = "postDishRating", notes = " ")
   public Response postDishRating(String body, @PathParam("id") String id) {
@@ -277,6 +289,15 @@ public class Mensa extends RESTService {
 
 
 
+    // notfound
+    boolean notfound_condition = true;
+    if(notfound_condition) {
+      JSONObject notfound = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(notfound.toJSONString()).build();
+    }
     // created
     boolean created_condition = true;
     if(created_condition) {
@@ -285,6 +306,15 @@ public class Mensa extends RESTService {
       
 
       return Response.status(HttpURLConnection.HTTP_CREATED).entity(created.toJSONString()).build();
+    }
+    // badrequest
+    boolean badrequest_condition = true;
+    if(badrequest_condition) {
+      JSONObject badrequest = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_BAD_REQUEST).entity(badrequest.toJSONString()).build();
     }
     return null;
   }
@@ -306,6 +336,8 @@ public class Mensa extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "unauthorized"),
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "notfound"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "deleted")
   })
   @ApiOperation(value = "deleteDishRating", notes = " ")
@@ -322,6 +354,24 @@ public class Mensa extends RESTService {
 
 
 
+    // unauthorized
+    boolean unauthorized_condition = true;
+    if(unauthorized_condition) {
+      JSONObject unauthorized = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_UNAUTHORIZED).entity(unauthorized.toJSONString()).build();
+    }
+    // notfound
+    boolean notfound_condition = true;
+    if(notfound_condition) {
+      JSONObject notfound = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(notfound.toJSONString()).build();
+    }
     // deleted
     boolean deleted_condition = true;
     if(deleted_condition) {
@@ -349,7 +399,8 @@ public class Mensa extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "ok")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "ok"),
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "notfound")
   })
   @ApiOperation(value = "listDishRatings", notes = " ")
   public Response listDishRatings(@PathParam("id") String id) {
@@ -373,6 +424,15 @@ public class Mensa extends RESTService {
       
 
       return Response.status(HttpURLConnection.HTTP_OK).entity(ok.toJSONString()).build();
+    }
+    // notfound
+    boolean notfound_condition = true;
+    if(notfound_condition) {
+      JSONObject notfound = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(notfound.toJSONString()).build();
     }
     return null;
   }
